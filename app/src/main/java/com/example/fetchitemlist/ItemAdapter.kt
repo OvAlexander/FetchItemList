@@ -30,4 +30,5 @@ class ItemAdapter(private val itemList: List<Item>) :
                 Log.e("ItemAdapter", "Item returned null at position $position")
             }
         }
+        override fun getItemCount() = itemList.size
     }
