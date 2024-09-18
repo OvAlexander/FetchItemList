@@ -11,11 +11,20 @@ import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
+    // Initialization of private properties
     private lateinit var recyclerView : RecyclerView
     private  lateinit var adapter : ItemAdapter
 
+    /**
+     * Int extraction from string.
+     *
+     * Function takes in a string then utilizes regex to extract any
+     * ints found and returns them as an int
+     *
+     * @param str Input string
+     * @return extracted integer from string
+     */
     private fun extractNumber(str: String?): Int? {
-        // Function to extract numbers from a string using regex
         val regex = "\\d+".toRegex()
         val match = regex.find(str.toString())
         return match?.value?.toInt()
@@ -40,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             while (line != null) {
                 builder.append(line)
                 line = reader.readLine()
-
             }
 
             // Store retrieved JSON Data as a string
@@ -67,6 +75,7 @@ class MainActivity : AppCompatActivity() {
 
             // Create list of sorted items
             val sortedItems = sortedGroups.values.flatten()
+
             // Populate recyclerView with sortedItems using ItemAdapter
             adapter = ItemAdapter(sortedItems)
             recyclerView.adapter = adapter
