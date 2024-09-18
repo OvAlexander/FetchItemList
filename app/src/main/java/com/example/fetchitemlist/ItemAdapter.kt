@@ -9,12 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  * This ItemAdapter class manages the presentation of [Item] objects within a RecyclerView.
- *
- * Function takes in a string then utilizes regex to extract any
- * ints found and returns them as an int
- *
- * @param str Input string
- * @return extracted integer from string
  */
 class ItemAdapter(private val itemList: List<Item>) :
     RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
